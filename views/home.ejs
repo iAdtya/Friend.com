@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+</head>
+<body>
+  <!-- component -->
+  <%- include('_navbar') %>
+  <!-- friends chat logo -->
+
+<div class="flex h-screen antialiased text-gray-800">
+  <div class="flex flex-row h-full w-full overflow-x-hidden">
+    
+    <%- include('_friends') %>
+    <!-- posts -->
+
+    <%- include( '_posts') %>
+
+    <!-- Chat box -->
+    <%- include('_chatbox')  %>
+    
+  </div>
+</div>
+</body>
+</html>

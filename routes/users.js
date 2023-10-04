@@ -1,15 +1,17 @@
 import express from 'express';
-import {profile} from '../controllers/users_controllers.js';
+import UserController from '../controllers/users_controllers.js';
+
+const userController = new UserController();
 
 const router = express.Router();
 
-router.get('/profile', profile);
+router.get('/profile', userController.profile);
 
-// router.get('/sign-up', signUp);
+router.get('/sign-up', userController.signUp);
 
-// router.get('/sign-in', signIn);
+router.get('/sign-in', userController.signIn);
 
-// router.post('/create', create);
+router.post('/create', userController.create);
 
 // router.get('/sign-out', destroySession);
 

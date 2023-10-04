@@ -1,17 +1,20 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose';  
+import dotenv from 'dotenv';
+dotenv.config();
 
-const Cluster_url = process.env.Cluster_url;
+const uri = process.env.uri
+console.log(uri);
+ 
+export const connectDB = async () => {
+  try{
 
-mongoose.connect(Cluster_url);
+    await mongoose.connect(uri,{
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("mongoose connected:: Atlas cluster");
+  }catch(error){
+    console.log(error);
+  }
+};
 
-const db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error: to Cluster'));
-
-db.once('open', function() {
-
-  console.log(`Connected to MongoDB at :: ${Cluster_url}`);
-
-});
-
-export default Cluster_url;

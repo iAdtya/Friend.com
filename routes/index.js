@@ -1,5 +1,7 @@
 import express  from  "express";
 import users from './users.js';
+import mongoose from "mongoose";
+// console.log(mongoose.connection)
 
 
 import {home} from "../controllers/home_controllers.js";

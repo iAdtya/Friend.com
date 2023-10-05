@@ -2,6 +2,7 @@ import User from '../models/user.js';
 import fs from 'fs';
 import path from 'path';
 
+
 class UserController {
 
   profile(req,res){
@@ -12,6 +13,11 @@ class UserController {
   }
 
   signIn(req,res){
+
+    if(req.isAuthenticated()){
+      return res.redirect('/');
+    }
+    
     console.log("signIn");
     return res.render('login', {
       title: 'User Sign In'
@@ -43,6 +49,12 @@ class UserController {
       return res.status(500).send(error.message);
     }
   }
+
+  createSession(req,res){
+    console.log("createSession");
+    return res.redirect('/');
+  }
+
 };
 
 export default UserController;
